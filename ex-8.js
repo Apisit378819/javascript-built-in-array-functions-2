@@ -374,5 +374,6 @@ const bills = [
 ];
 
 // Start coding here
+//สรุปยอดรายรับเป็นรายจังหวัด
 
-const totalPaidByLocation;
+const totalPaidByLocation = 0;

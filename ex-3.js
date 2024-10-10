@@ -374,4 +374,19 @@ const bills = [
 ];
 
 // Start coding here
-const billMembers;
+//ขอดูเฉพาะชื่อคนซื้อ >> .member.name
+
+const onlyName = (bills) => {
+  const result = bills
+    .filter((eachBill) => {
+      return eachBill.member !== null;
+    })
+    .map((eachBill) => {
+      return eachBill.member.name;
+    });
+
+  return result;
+};
+
+const billMembers = onlyName(bills);
+console.log(billMembers);

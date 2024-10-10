@@ -374,5 +374,13 @@ const bills = [
 ];
 
 // Start coding here
+//หาเฉพาะรายการที่มีข้อมูลสมาชิกเท่านั้น member !== null
+const onlyMember = (bills) => {
+  const result = bills.filter((eachBill) => {
+    return eachBill.member !== null;
+  });
+  return result;
+};
 
-const newBills;
+const newBills = onlyMember(bills);
+console.log(newBills);

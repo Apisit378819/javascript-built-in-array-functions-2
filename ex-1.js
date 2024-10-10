@@ -374,3 +374,13 @@ const bills = [
 ];
 
 // Start coding here
+//หายอดจ่ายเงินทั้งหมดใน bills["total"]
+const sumTotal = (bills) => {
+  //เข้าถึง bills.total
+  //ใช้ reduce จะเข้าถึงสมาชิกที่เป็น obj ให้เลย จากนั้นใช้ current.total เพื่อเข้าถึงพรอพเพอร์ตี้ total ใน obj ปัจจุบัน 
+  return bills.reduce((acc, current) => {         
+    return acc + current.total;
+  }, 0);
+};
+
+console.log(sumTotal(bills));
