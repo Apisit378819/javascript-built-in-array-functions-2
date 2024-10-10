@@ -377,19 +377,34 @@ const bills = [
 //สรุปยอดรายรับเป็นรายจังหวัด
 //ใช้ reduce โดย acc = {} , cur = obj
 
-const sumTotalByLocation = (bills) => {
-  const result = bills.reduce((all, item) => {
-    const location = item.location;
-    if (all[location] == undefined) {
-      all[location] = item.total;
-      console.log(all);
-    } else if (all[location]) {
-      all[location] + item.total;
-      return all;
+// const sumTotalByLocation = (bills) => {
+//   const result = bills.reduce((all, item) => {
+//     if (all[item.location]) {
+//       all[item.location] = item.total;
+//     } else {
+//       all[item.location] += item.total;
+
+//     }
+//     return all;
+//   }, {});
+//   return result;
+// };  *****เดี๋ยวมาลองใหม่
+
+// function sumTotalByLocation (){}
+
+function sumTotalByLocation(bills) {
+  let totalPaid = bills.reduce((acc, cur) => {
+    if (acc[cur.location]) {
+      //ถ้ามีคีย์ [จังหวัด] อยู่แล้ว จะบวกค่า cur.total หรือรายได้จากจังหวัดนั้นๆ เข้าไป
+      acc[cur.location] = acc[cur.location] + cur.total;
+    } else {
+      //ถ้าไม่มีคีย์ [จังหวัด] จะกำหนดให้ คีย์เป็น [จังหวัด] และมีค่าเป็น cur.total
+      acc[cur.location] = cur.total;
     }
-  }, {});
-  return result;
-};
+    return acc;
+  });
+  return totalPaid;
+}
 
 const totalPaidByLocation = sumTotalByLocation(bills);
-console.log(totalPaidByLocation);
+// console.log(totalPaidByLocation);

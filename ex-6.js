@@ -20,7 +20,6 @@ function updateCarCollection(carBrand) {
     carCollection.push(carBrand);
     return `new car collection is ${carCollection.join(",")}`;
   }
-  return;
 }
 
 //ผลลัพธ์ที่ควรได้จาก Example case

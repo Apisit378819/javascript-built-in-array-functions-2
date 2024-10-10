@@ -377,29 +377,29 @@ const bills = [
 //นับจำนวนสมาชิก โดยไม่นับชื่อที่ซ้ำกัน
 //"Unique Members Count: 12";
 const countUniqueName = (bills) => {
-  const allName = bills
+  const result = bills
     .filter((eachBill) => {
       return eachBill.member !== null;
     })
     .map((eachBill) => {
       return eachBill.member.name;
-    });
-  // console.log(allName);
-  let result = allName.filter((item, index) => {
-    return allName.indexOf(item) !== index
-  });
-  console.log(result);
-  
-  return result;
+    })
+    .reduce((acc, cur) => {
+      if (!acc.includes(cur)) {
+        acc.push(cur);
+      }
+      return acc;
+    }, []);
+  return `Unique Member Count: ${result.length}`;
 };
 
 const totalMembers = countUniqueName(bills);
+console.log(totalMembers);
 
 // const duplicates = array.filter((item, index) => array.indexOf(item) !== index);
 //ให้ array ใช้ filter ((ไอเทม, อินเด็กซ์) => รีเทิร์นชื่อออกมาเมื่อ อินเด็กซ์ของไอเทมปัจจุบันในอาเรย์ ไม่เท่ากับ อินเด็กปัจจุบัน)
 //ผลลัพธ์ อาเรย์ของไอเทมที่ซ้ำ
 
-
 /**วิธี reduce total = [] // current = eachName
-     * ถ้าใน total มี eachName อยู่แล้ว ให้ข้ามไปเลย
-     */
+ * ถ้าใน total มี eachName อยู่แล้ว ให้ข้ามไปเลย
+ */
