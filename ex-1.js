@@ -374,3 +374,5 @@ const bills = [
 ];
 
 // Start coding here
+const totals = bills.reduce((sum , crr) => sum + crr.total ,0)
+console.log("ยอดชำระรวมทั้งหมด:", totals)
