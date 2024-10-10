@@ -1,7 +1,15 @@
 const carCollection = ["toyota", "fiat", "honda", "bmw"];
+console.log(carCollection.join());
 
 function updateCarCollection(carBrand) {
+  let carb = carCollection.filter((x) => x === carBrand).join();
   // Start coding here
+  if (carb === "") {
+    carCollection.push(carBrand);
+    return `new car collection is : ${carCollection}`;
+  } else {
+    return carb + "has already existed in the 1 position of car collection";
+  }
 }
 
 //ผลลัพธ์ที่ควรได้จาก Example case

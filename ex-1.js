@@ -373,4 +373,5 @@ const bills = [
   },
 ];
 
-// Start coding here
+console.log(bills.reduce((acc, ruc) => acc + ruc.total, 0));
+
